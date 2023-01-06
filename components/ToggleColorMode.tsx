@@ -7,6 +7,8 @@ export default function ThemeSwitch() {
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
+    console.log(theme)
+
     setMounted(true)
   }, [])
 
@@ -14,7 +16,7 @@ export default function ThemeSwitch() {
     return null
   }
 
-  if (theme === 'dark') return <Button onClick={() => setTheme('light')}>Go Lightness</Button>
-  if (theme === 'light') return <Button onClick={() => setTheme('dark')}>Go Darkness</Button>
-  return null
+  if (theme === 'dark') return <Button onClick={() => setTheme('light')}>Go to Lightness</Button>
+  if (theme === 'light' || theme === 'system') return <Button onClick={() => setTheme('dark')}>Go to Darkness</Button>
+  return <>Error</>
 }
